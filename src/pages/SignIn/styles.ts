@@ -60,36 +60,6 @@ export const LoginBox = styled.div`
     display: flex;
     flex-direction: column;
 
-    input {
-      padding: 14px 24px;
-      margin-bottom: 1rem;
-      border-radius: 50px;
-      border: 1px solid #bbbbbb;
-      color: #753a64;
-      font-size: 18px;
-
-      &:focus {
-        border: 1px solid #753a64;
-      }
-    }
-
-    button {
-      margin-top: 1em;
-      align-self: center;
-      padding: 16px 60px;
-      border-radius: 10px;
-      border: none;
-      background: #753a64;
-      color: #ffffff;
-      font-weight: 500;
-      font-size: 18px;
-      transition: background-color 0.2s;
-
-      &:hover {
-        background: ${lighten(0.1, '#753a64')};
-      }
-    }
-
     a {
       color: #753a64;
       text-decoration: none;

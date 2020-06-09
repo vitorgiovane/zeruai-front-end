@@ -22,4 +22,8 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+  }
 `

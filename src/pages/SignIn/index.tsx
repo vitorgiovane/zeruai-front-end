@@ -1,9 +1,11 @@
 import React from 'react'
-import { Key2 } from '@styled-icons/remix-line'
+import { Mail, LogIn, Lock } from '@styled-icons/feather'
 
 import logo from '../../assets/logo.png'
 
 import { Container, Resume, LoginBox } from './styles'
+import Input from '../../components/Input'
+import Button from '../../components/Button'
 
 const SignIn: React.FC = () => (
   <Container>
@@ -22,9 +24,16 @@ const SignIn: React.FC = () => (
     <LoginBox>
       <h1>Welcome back</h1>
       <form>
-        <input placeholder="E-mail" />
-        <input type="password" placeholder="Password" />
-        <button type="submit">Sign in</button>
+        <Input name="email" icon={Mail} placeholder="E-mail" />
+        <Input
+          name="password"
+          icon={Lock}
+          type="password"
+          placeholder="Password"
+        />
+        <Button type="submit" icon={LogIn}>
+          Sign in
+        </Button>
         <a href="Register">
           Don&apos;t have an account yet? <strong>Register</strong>
         </a>
