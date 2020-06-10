@@ -9,10 +9,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   backgroundColor: string
 }
 
-const Button: React.FC<ButtonProps> = ({ icon: Icon, children, ...rest }) => (
-  <Container {...rest}>
+const Button: React.FC<ButtonProps> = ({
+  icon: Icon,
+  backgroundColor,
+  children,
+  ...rest
+}) => (
+  <Container backgroundColor={backgroundColor} {...rest}>
     {children}
-    {Icon && <Icon size={26} />}
+    {Icon && <Icon size={20} />}
   </Container>
 )
 

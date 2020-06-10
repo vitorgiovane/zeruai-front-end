@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 import { lighten } from 'polished'
 
-export const Container = styled.button`
+interface ContainerProps {
+  backgroundColor: string
+}
+
+export const Container = styled.button<ContainerProps>`
   display: flex;
   align-items: center;
   margin-top: 1em;
@@ -9,14 +13,15 @@ export const Container = styled.button`
   padding: 16px 60px;
   border-radius: 10px;
   border: none;
-  background: #753a64;
+  background: ${(props) => props.backgroundColor};
   color: #ffffff;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   transition: background-color 0.2s;
 
   &:hover {
-    background: ${lighten(0.1, '#753a64')};
+    background: ${(props) =>
+      props.backgroundColor && lighten(0.1, props.backgroundColor)};
   }
 
   svg {

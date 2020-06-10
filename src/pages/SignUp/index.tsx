@@ -1,5 +1,5 @@
 import React from 'react'
-import { Mail, LogIn, Lock, User } from '@styled-icons/feather'
+import { Envelope, Lock, User, SignInAlt } from '@styled-icons/fa-solid'
 import { Form } from '@unform/web'
 
 import logo from '../../assets/logo.png'
@@ -30,15 +30,26 @@ const SignUp: React.FC = () => {
       <RegisterBox>
         <h1>Create account</h1>
         <Form onSubmit={handleSubmit}>
-          <Input name="name" icon={User} placeholder="Name" />
-          <Input name="email" icon={Mail} placeholder="E-mail" />
           <Input
+            themeColor="#375572"
+            name="name"
+            icon={User}
+            placeholder="Name"
+          />
+          <Input
+            themeColor="#375572"
+            name="email"
+            icon={Envelope}
+            placeholder="E-mail"
+          />
+          <Input
+            themeColor="#375572"
             name="password"
             icon={Lock}
             type="password"
             placeholder="Password"
           />
-          <Button type="submit" icon={LogIn} backgroundColor="#f00">
+          <Button backgroundColor="#375572" type="submit" icon={SignInAlt}>
             Sign Up
           </Button>
           <a href="Register">
