@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { Envelope, Lock, User, SignInAlt } from '@styled-icons/fa-solid'
 import { Form } from '@unform/web'
+import * as Yup from 'yup'
 
 import logo from '../../assets/logo.png'
 
@@ -9,9 +10,26 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 
 const SignUp: React.FC = () => {
-  const handleSubmit = (userAttributes: object): void => {
-    console.log(userAttributes)
-  }
+  const handleSubmit = useCallback(async (userAttributes: object) => {
+    try {
+      const schema = Yup.object().shape({
+        name: Yup.string().required('Name is required'),
+        email: Yup.string()
+          .required('E-mail is required')
+          .email('Enter a valid e-mail'),
+        password: Yup.string().min(
+          6,
+          'Enter a password of at least 6 characters'
+        )
+      })
+
+      await schema.validate(userAttributes, {
+        abortEarly: false
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
 
   return (
     <Container>
