@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { lighten } from 'polished'
 
 export const Container = styled.button`
+  display: flex;
+  align-items: center;
   margin-top: 1em;
   align-self: center;
   padding: 16px 60px;

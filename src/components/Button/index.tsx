@@ -6,6 +6,7 @@ import { StyledIconProps } from '@styled-icons/styled-icon'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ComponentType<StyledIconProps>
+  backgroundColor: string
 }
 
 const Button: React.FC<ButtonProps> = ({ icon: Icon, children, ...rest }) => (

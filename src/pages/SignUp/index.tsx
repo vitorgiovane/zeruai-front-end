@@ -1,13 +1,13 @@
 import React from 'react'
-import { Mail, LogIn, Lock } from '@styled-icons/feather'
+import { Mail, LogIn, Lock, User } from '@styled-icons/feather'
 
 import logo from '../../assets/logo.png'
 
-import { Container, Resume, LoginBox } from './styles'
+import { Container, Resume, RegisterBox } from './styles'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 
-const SignIn: React.FC = () => (
+const SignUp: React.FC = () => (
   <Container>
     <Resume>
       <img src={logo} alt="Zeruai" />
@@ -21,9 +21,10 @@ const SignIn: React.FC = () => (
         incididunt ut labore et dolore.
       </h3>
     </Resume>
-    <LoginBox>
-      <h1>Welcome back</h1>
+    <RegisterBox>
+      <h1>Create account</h1>
       <form>
+        <Input name="name" icon={User} placeholder="Name" />
         <Input name="email" icon={Mail} placeholder="E-mail" />
         <Input
           name="password"
@@ -31,15 +32,15 @@ const SignIn: React.FC = () => (
           type="password"
           placeholder="Password"
         />
-        <Button type="submit" icon={LogIn} backgroundColor="#FF0">
+        <Button type="submit" icon={LogIn} backgroundColor="#f00">
           Sign in
         </Button>
         <a href="Register">
-          Don&apos;t have an account yet? <strong>Register</strong>
+          Already have an account? <strong>Sign in</strong>
         </a>
       </form>
-    </LoginBox>
+    </RegisterBox>
   </Container>
 )
 
-export default SignIn
+export default SignUp
