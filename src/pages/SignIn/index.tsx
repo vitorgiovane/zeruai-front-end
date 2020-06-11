@@ -1,5 +1,5 @@
 import React from 'react'
-import { Envelope, Lock, User, SignInAlt } from '@styled-icons/fa-solid'
+import { Envelope, Lock, SignInAlt } from '@styled-icons/fa-solid'
 import { Form } from '@unform/web'
 
 import logo from '../../assets/logo.png'
@@ -31,19 +31,19 @@ const SignIn: React.FC = () => {
         <h1>Welcome back</h1>
         <Form onSubmit={handleSubmit}>
           <Input
-            themeColor="#753A64"
+            themeColor="#F4A40F"
             name="email"
             icon={Envelope}
             placeholder="E-mail"
           />
           <Input
-            themeColor="#753A64"
+            themeColor="#F4A40F"
             name="password"
             icon={Lock}
             type="password"
             placeholder="Password"
           />
-          <Button backgroundColor="#753A64" type="submit" icon={SignInAlt}>
+          <Button backgroundColor="#F4A40F" type="submit" icon={SignInAlt}>
             Sign in
           </Button>
           <a href="Register">

@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { lighten } from 'polished'
+import { shade } from 'polished'
 
 export const Container = styled.div`
-  background: rgb(55, 85, 114);
+  background: rgb(41, 57, 75);
   background: linear-gradient(
     150deg,
-    rgba(55, 85, 114, 1) 0%,
-    rgba(89, 71, 107, 1) 100%
+    rgba(41, 57, 75, 1) 0%,
+    rgba(23, 37, 52, 1) 100%
   );
   height: 100vh;
   padding: 3em 4em;
@@ -42,18 +42,20 @@ export const Resume = styled.div`
 `
 
 export const LoginBox = styled.div`
-  background: #ffffff;
+  background: #111f2d;
   border-radius: 30px;
-  padding: 40px 40px;
-  height: 400px;
+  padding: 60px 50px;
   align-self: center;
   flex-grow: 1;
+  -webkit-box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
+  box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
 
   h1 {
-    color: #753a64;
+    color: #acb9c6;
     font-weight: 600;
-    margin-bottom: 1em;
-    font-size: 30px;
+    margin-bottom: 1.6em;
+    font-size: 24px;
   }
 
   form {
@@ -61,7 +63,7 @@ export const LoginBox = styled.div`
     flex-direction: column;
 
     a {
-      color: #753a64;
+      color: #f4a40f;
       text-decoration: none;
       text-align: center;
       margin-top: 1.5rem;
@@ -69,7 +71,7 @@ export const LoginBox = styled.div`
       transition: color 0.2s;
 
       &:hover {
-        color: ${lighten(0.2, '#753a64')};
+        color: ${shade(0.3, '#F4A40F')};
       }
     }
   }

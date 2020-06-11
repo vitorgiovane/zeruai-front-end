@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { lighten } from 'polished'
+import { shade } from 'polished'
 
 interface ContainerProps {
   backgroundColor: string
@@ -14,14 +14,14 @@ export const Container = styled.button<ContainerProps>`
   border-radius: 10px;
   border: none;
   background: ${(props) => props.backgroundColor};
-  color: #ffffff;
+  color: #111f2d;
   font-weight: 500;
   font-size: 16px;
   transition: background-color 0.2s;
 
   &:hover {
     background: ${(props) =>
-      props.backgroundColor && lighten(0.1, props.backgroundColor)};
+      props.backgroundColor && shade(0.2, props.backgroundColor)};
   }
 
   svg {
