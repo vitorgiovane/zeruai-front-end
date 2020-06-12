@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { lighten } from 'polished'
+import { shade } from 'polished'
 
 export const Container = styled.div`
-  background: rgb(117, 58, 100);
+  background: rgb(41, 57, 75);
   background: linear-gradient(
-    135deg,
-    rgba(117, 58, 100, 1) 0%,
-    rgba(68, 79, 111, 1) 100%
+    150deg,
+    rgba(41, 57, 75, 1) 0%,
+    rgba(23, 37, 52, 1) 100%
   );
   height: 100vh;
   padding: 3em 4em;
@@ -41,14 +41,17 @@ export const Resume = styled.div`
   }
 `
 export const RegisterBox = styled.div`
-  background: #ffffff;
+  background: #111f2d;
   border-radius: 30px;
-  padding: 40px 40px;
+  padding: 60px 50px;
   align-self: center;
   flex-grow: 1;
+  -webkit-box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
+  box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
 
   h1 {
-    color: #375572;
+    color: #acb9c6;
     font-weight: 600;
     margin-bottom: 1em;
     font-size: 30px;
@@ -59,7 +62,7 @@ export const RegisterBox = styled.div`
     flex-direction: column;
 
     a {
-      color: #375572;
+      color: #f4a40f;
       text-decoration: none;
       text-align: center;
       margin-top: 1.5rem;
@@ -67,7 +70,7 @@ export const RegisterBox = styled.div`
       transition: color 0.2s;
 
       &:hover {
-        color: ${lighten(0.2, '#375572')};
+        color: ${shade(0.3, '#F4A40F')};
       }
     }
   }

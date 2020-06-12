@@ -49,25 +49,25 @@ const SignUp: React.FC = () => {
         <h1>Create account</h1>
         <Form onSubmit={handleSubmit}>
           <Input
-            themeColor="#375572"
+            themeColor="#f4a40f"
             name="name"
             icon={User}
             placeholder="Name"
           />
           <Input
-            themeColor="#375572"
+            themeColor="#f4a40f"
             name="email"
             icon={Envelope}
             placeholder="E-mail"
           />
           <Input
-            themeColor="#375572"
+            themeColor="#f4a40f"
             name="password"
             icon={Lock}
             type="password"
             placeholder="Password"
           />
-          <Button backgroundColor="#375572" type="submit" icon={SignInAlt}>
+          <Button backgroundColor="#f4a40f" type="submit" icon={SignInAlt}>
             Sign Up
           </Button>
           <a href="Register">
