@@ -13,12 +13,12 @@ export const Container = styled.div<ContainerProps>`
   background-color: #0c1722;
   display: flex;
   align-items: center;
-  color: #bbb;
+  color: #5d7184;
 
   ${(props) =>
     props.isFocused &&
     css`
-      border: 1px solid ${props.themeColor};
+      border: 2px solid ${props.themeColor};
     `}
 
   ${(props) =>
@@ -33,9 +33,14 @@ export const Container = styled.div<ContainerProps>`
     background-color: transparent;
     border: none;
     color: ${(props) => props.themeColor};
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     border-radius: 0 30px 30px 0;
+    letter-spacing: 0.5px;
+
+    &::placeholder {
+      color: #5d7184;
+    }
   }
 
   svg {
