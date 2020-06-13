@@ -71,7 +71,7 @@ export const LoginBox = styled.div`
       transition: color 0.2s;
 
       &:hover {
-        color: ${shade(0.3, '#F4A40F')};
+        color: ${shade(0.3, '#f4a40f')};
       }
     }
   }

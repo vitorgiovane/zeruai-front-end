@@ -6,9 +6,10 @@ import React, {
   useCallback
 } from 'react'
 import { StyledIconProps } from '@styled-icons/styled-icon'
+import { ExclamationCircle } from '@styled-icons/fa-solid'
 import { useField } from '@unform/core'
 
-import { Container } from './styles'
+import { Container, Error } from './styles'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string
@@ -48,6 +49,7 @@ const Input: React.FC<InputProps> = ({
       themeColor={themeColor}
       isFocused={isFocused}
       isFilled={isFilled}
+      isErrored={!!error}
     >
       {Icon && <Icon size={14} />}
       <input
@@ -57,7 +59,11 @@ const Input: React.FC<InputProps> = ({
         ref={inputRef}
         {...rest}
       />
-      {error}
+      {error && (
+        <Error title={error}>
+          <ExclamationCircle color="#f42626" size={20} />
+        </Error>
+      )}
     </Container>
   )
 }
