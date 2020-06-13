@@ -1,8 +1,10 @@
-import React, { useRef, useCallback } from 'react'
+import React, { useRef, useCallback, useContext } from 'react'
 import { Envelope, Lock, SignInAlt } from '@styled-icons/fa-solid'
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
+
+import { AuthContext, SignInCredentials } from '../../context/Auth'
 import getValidationErrors from '../../utils/getValidationErrors'
 
 import logo from '../../assets/logo.png'
@@ -14,26 +16,36 @@ import Button from '../../components/Button'
 const SignIn: React.FC = () => {
   const formReference = useRef<FormHandles>(null)
 
-  const handleSubmit = useCallback(async (userAttributes: object) => {
-    try {
-      formReference.current?.setErrors({})
+  const { signIn } = useContext(AuthContext)
 
-      const schema = Yup.object().shape({
-        email: Yup.string()
-          .required('E-mail is required')
-          .email('Enter a valid e-mail'),
-        password: Yup.string().required('Password is required')
-      })
+  const handleSubmit = useCallback(
+    async ({ email, password }: SignInCredentials) => {
+      try {
+        formReference.current?.setErrors({})
 
-      await schema.validate(userAttributes, {
-        abortEarly: false
-      })
-    } catch (error) {
-      const errors = getValidationErrors(error)
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('E-mail is required')
+            .email('Enter a valid e-mail'),
+          password: Yup.string().required('Password is required')
+        })
 
-      formReference.current?.setErrors(errors)
-    }
-  }, [])
+        await schema.validate(
+          { email, password },
+          {
+            abortEarly: false
+          }
+        )
+
+        signIn({ email, password })
+      } catch (error) {
+        const errors = getValidationErrors(error)
+
+        formReference.current?.setErrors(errors)
+      }
+    },
+    [signIn]
+  )
 
   return (
     <Container>
