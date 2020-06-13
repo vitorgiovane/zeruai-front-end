@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useRef, useCallback } from 'react'
 import { Envelope, Lock, SignInAlt } from '@styled-icons/fa-solid'
+import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
+import * as Yup from 'yup'
+import getValidationErrors from '../../utils/getValidationErrors'
 
 import logo from '../../assets/logo.png'
 
@@ -9,9 +12,28 @@ import Input from '../../components/Input'
 import Button from '../../components/Button'
 
 const SignIn: React.FC = () => {
-  const handleSubmit = (userAttributes: object): void => {
-    console.log(userAttributes)
-  }
+  const formReference = useRef<FormHandles>(null)
+
+  const handleSubmit = useCallback(async (userAttributes: object) => {
+    try {
+      formReference.current?.setErrors({})
+
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .required('E-mail is required')
+          .email('Enter a valid e-mail'),
+        password: Yup.string().required('Password is required')
+      })
+
+      await schema.validate(userAttributes, {
+        abortEarly: false
+      })
+    } catch (error) {
+      const errors = getValidationErrors(error)
+
+      formReference.current?.setErrors(errors)
+    }
+  }, [])
 
   return (
     <Container>
@@ -29,7 +51,7 @@ const SignIn: React.FC = () => {
       </Resume>
       <LoginBox>
         <h1>Welcome back</h1>
-        <Form onSubmit={handleSubmit}>
+        <Form ref={formReference} onSubmit={handleSubmit}>
           <Input
             themeColor="#F4A40F"
             name="email"
