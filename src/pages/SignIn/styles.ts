@@ -2,15 +2,14 @@ import styled, { keyframes } from 'styled-components'
 import { shade } from 'polished'
 
 export const Container = styled.div`
-  background: rgb(41, 57, 75);
-  background: linear-gradient(
-    150deg,
-    rgba(41, 57, 75, 1) 0%,
-    rgba(23, 37, 52, 1) 100%
-  );
   height: 100vh;
   padding: 3em 4em;
   display: flex;
+
+  @media only screen and (max-width: 720px) {
+    flex-direction: column;
+    height: auto;
+  }
 `
 
 export const Resume = styled.div`
@@ -32,12 +31,20 @@ export const Resume = styled.div`
     font-weight: 500;
     margin-bottom: 1rem;
     font-size: 40px;
+
+    @media only screen and (max-width: 720px) {
+      display: none;
+    }
   }
 
   h3 {
     color: #eeeeee;
     font-weight: 400;
     font-size: 20px;
+
+    @media only screen and (max-width: 720px) {
+      display: none;
+    }
   }
 `
 
@@ -63,6 +70,11 @@ export const LoginBox = styled.div`
   box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
 
   animation: ${appearFromRight} 1s;
+
+  @media only screen and (max-width: 720px) {
+    width: 100%;
+    margin: 5em 0;
+  }
 
   h1 {
     color: #acb9c6;

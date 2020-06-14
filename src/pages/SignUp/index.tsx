@@ -3,42 +3,72 @@ import { Envelope, Lock, User, SignInAlt } from '@styled-icons/fa-solid'
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
-import getValidationErrors from '../../utils/getValidationErrors'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
+import api from '../../services/api'
+import { useToast } from '../../hooks/toast'
+import getValidationErrors from '../../utils/getValidationErrors'
 import logo from '../../assets/logo.png'
 
 import { Container, Resume, RegisterBox } from './styles'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
 
+interface SignUpForm {
+  name: string
+  email: string
+  password: string
+}
+
 const SignUp: React.FC = () => {
   const formReference = useRef<FormHandles>(null)
+  const { addToast } = useToast()
+  const history = useHistory()
 
-  const handleSubmit = useCallback(async (userAttributes: object) => {
-    try {
-      formReference.current?.setErrors({})
+  const handleSubmit = useCallback(
+    async (userAttributes: SignUpForm) => {
+      try {
+        formReference.current?.setErrors({})
 
-      const schema = Yup.object().shape({
-        name: Yup.string().required('Name is required'),
-        email: Yup.string()
-          .required('E-mail is required')
-          .email('Enter a valid e-mail'),
-        password: Yup.string().min(
-          6,
-          'Enter a password of at least 6 characters'
-        )
-      })
+        const schema = Yup.object().shape({
+          name: Yup.string().min(3, 'Your name must be at least 3 characters'),
+          email: Yup.string()
+            .required('E-mail is required')
+            .email('Enter a valid e-mail'),
+          password: Yup.string().min(
+            6,
+            'Enter a password of at least 6 characters'
+          )
+        })
 
-      await schema.validate(userAttributes, {
-        abortEarly: false
-      })
-    } catch (error) {
-      const errors = getValidationErrors(error)
+        await schema.validate(userAttributes, {
+          abortEarly: false
+        })
 
-      formReference.current?.setErrors(errors)
-    }
-  }, [])
+        await api.post('/users', userAttributes)
+        addToast({
+          type: 'success',
+          title: 'User successfully registered',
+          description: 'You can now log in to Zeruai.'
+        })
+
+        history.push('/')
+      } catch (error) {
+        if (error instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(error)
+          formReference.current?.setErrors(errors)
+          return
+        }
+
+        addToast({
+          type: 'error',
+          title: 'Registration error',
+          description: 'An error occurred during registration. Try again.'
+        })
+      }
+    },
+    [addToast, history]
+  )
 
   return (
     <Container>
