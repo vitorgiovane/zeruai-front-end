@@ -4,7 +4,8 @@ import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
 
-import { useAuth, SignInCredentials } from '../../context/Auth'
+import { useAuth, SignInCredentials } from '../../hooks/auth'
+import { useToast } from '../../hooks/toast'
 import getValidationErrors from '../../utils/getValidationErrors'
 
 import logo from '../../assets/logo.png'
@@ -17,6 +18,7 @@ const SignIn: React.FC = () => {
   const formReference = useRef<FormHandles>(null)
 
   const { signIn } = useAuth()
+  const { addToast } = useToast()
 
   const handleSubmit = useCallback(
     async ({ email, password }: SignInCredentials) => {
@@ -37,14 +39,22 @@ const SignIn: React.FC = () => {
           }
         )
 
-        signIn({ email, password })
+        await signIn({ email, password })
       } catch (error) {
-        const errors = getValidationErrors(error)
+        if (error instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(error)
+          formReference.current?.setErrors(errors)
+          return
+        }
 
-        formReference.current?.setErrors(errors)
+        addToast({
+          type: 'error',
+          title: 'Invalid credentials',
+          description: 'Enter a valid combination of credentials'
+        })
       }
     },
-    [signIn]
+    [signIn, addToast]
   )
 
   return (
