@@ -1,4 +1,4 @@
-import React, { createContext, useCallback } from 'react'
+import React, { createContext, useCallback, useState, useContext } from 'react'
 import api from '../services/api'
 
 export interface SignInCredentials {
@@ -7,21 +7,52 @@ export interface SignInCredentials {
 }
 
 interface AuthProps {
-  name: string
+  user: object
   signIn(credentials: SignInCredentials): Promise<void>
 }
 
-export const AuthContext = createContext<AuthProps>({} as AuthProps)
+interface AuthState {
+  token: string
+  user: object
+}
+
+const AuthContext = createContext<AuthProps>({} as AuthProps)
 
 export const AuthProvider: React.FC = ({ children }) => {
+  const [AuthData, setAuthData] = useState<AuthState>(() => {
+    const token = localStorage.getItem('@Zeruai:token')
+    const user = localStorage.getItem('@Zeruai:user')
+
+    if (token && user) {
+      return { token, user: JSON.parse(user) }
+    }
+
+    return {} as AuthState
+  })
+
   const signIn = useCallback(async ({ email, password }) => {
     const response = await api.post('sessions', { email, password })
-    console.log(response)
+
+    const { token, user } = response.data
+    localStorage.setItem('@Zeruai:token', token)
+    localStorage.setItem('@Zeruai:user', JSON.stringify(user))
+
+    setAuthData({ token, user })
   }, [])
 
   return (
-    <AuthContext.Provider value={{ name: 'Vitor', signIn }}>
+    <AuthContext.Provider value={{ user: AuthData.user, signIn }}>
       {children}
     </AuthContext.Provider>
   )
+}
+
+export function useAuth(): AuthProps {
+  const context = useContext(AuthContext)
+
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider')
+  }
+
+  return context
 }
