@@ -4,6 +4,7 @@ import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
 import getValidationErrors from '../../utils/getValidationErrors'
+import { Link } from 'react-router-dom'
 
 import logo from '../../assets/logo.png'
 
@@ -78,9 +79,9 @@ const SignUp: React.FC = () => {
           <Button backgroundColor="#f4a40f" type="submit" icon={SignInAlt}>
             Sign Up
           </Button>
-          <a href="Register">
+          <Link to="/">
             Already have an account? <strong>Sign In</strong>
-          </a>
+          </Link>
         </Form>
       </RegisterBox>
     </Container>

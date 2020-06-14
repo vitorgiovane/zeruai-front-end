@@ -3,6 +3,7 @@ import { Envelope, Lock, SignInAlt } from '@styled-icons/fa-solid'
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
+import { Link } from 'react-router-dom'
 
 import { useAuth, SignInCredentials } from '../../hooks/auth'
 import { useToast } from '../../hooks/toast'
@@ -90,9 +91,9 @@ const SignIn: React.FC = () => {
           <Button backgroundColor="#F4A40F" type="submit" icon={SignInAlt}>
             Sign in
           </Button>
-          <a href="Register">
+          <Link to="/signup">
             Don&apos;t have an account yet? <strong>Register</strong>
-          </a>
+          </Link>
         </Form>
       </LoginBox>
     </Container>

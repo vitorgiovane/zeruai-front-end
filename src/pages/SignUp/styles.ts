@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { shade } from 'polished'
 
 export const Container = styled.div`
@@ -40,6 +40,17 @@ export const Resume = styled.div`
     font-size: 20px;
   }
 `
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px)
+  }
+`
+
 export const RegisterBox = styled.div`
   background: #111f2d;
   border-radius: 30px;
@@ -50,11 +61,13 @@ export const RegisterBox = styled.div`
   -moz-box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
   box-shadow: 21px 29px 19px -12px rgba(0, 0, 0, 0.09);
 
+  animation: ${appearFromRight} 1s;
+
   h1 {
     color: #acb9c6;
     font-weight: 600;
     margin-bottom: 1em;
-    font-size: 30px;
+    font-size: 24px;
   }
 
   form {
