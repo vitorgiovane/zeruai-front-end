@@ -6,15 +6,21 @@ export interface SignInCredentials {
   password: string
 }
 
+interface userProps {
+  id: string
+  name: string
+  email: string
+}
+
 interface AuthProps {
-  user: object
+  user: userProps
   signIn(credentials: SignInCredentials): Promise<void>
   signOut(): void
 }
 
 interface AuthState {
   token: string
-  user: object
+  user: userProps
 }
 
 const AuthContext = createContext<AuthProps>({} as AuthProps)
