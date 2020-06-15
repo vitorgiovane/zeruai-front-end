@@ -1,44 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <br>
+  <img height="70" alt="Zeruai logo" src="https://res.cloudinary.com/vitorgiovane/image/upload/v1592201062/zeruai/dark-logo_dpmouh.png" />
+  </p>
+  <br>
+<h2 align="center">
+  Front-end of Zeruai application
+    <br>
+</h2>
+<h4 align="center">Interface developed with TypeScript and ReactJS</h4>
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/vitorgiovane/zeruai-front-end?color=%2304D361">
+  <img alt="GitHub tp language" src="https://img.shields.io/github/languages/top/vitorgiovane/zeruai-front-end">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
+  <img alt="Code size" src="https://img.shields.io/github/languages/code-size/vitorgiovane/zeruai-front-end">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/vitorgiovane/zeruai-front-end">
+</p>
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## :gem: &nbsp;&nbsp; Features
+- User Registration
+- Application LogIn
+- Application LogOut
 
-### `yarn start`
+<br>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## :arrow_forward: &nbsp; User Registration
+<img alt="Zeruai" src="https://res.cloudinary.com/vitorgiovane/image/upload/v1592209017/zeruai/create-account_fdutl7.gif" />
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<br>
 
-### `yarn test`
+## :arrow_forward: &nbsp; Application LogIn
+<img alt="Zeruai" src="https://res.cloudinary.com/vitorgiovane/image/upload/v1592209767/zeruai/login_m29yvw.gif" />
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `yarn build`
+## :arrow_forward: &nbsp; Application LogOut
+<img alt="Zeruai" src="https://res.cloudinary.com/vitorgiovane/image/upload/v1592210005/zeruai/logout_kdhobr.gif" />
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## :arrow_forward: &nbsp; Responsive SignUp
+<img alt="Zeruai" src="https://res.cloudinary.com/vitorgiovane/image/upload/v1592210267/zeruai/responsive-signup_fuy7md.gif" />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `yarn eject`
+## :arrow_forward: &nbsp; Responsive Dashboard
+<img alt="Zeruai" src="https://res.cloudinary.com/vitorgiovane/image/upload/v1592210351/zeruai/responsive-dashboard_xb1orf.gif" />
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :video_game: &nbsp; How to run this project
+1. Clone this repository on your machine.
+2. Make sure you have the project https://github.com/vitorgiovane/zeruai-back-end running in your machine.
+3. In a terminal at the root of the project run `yarn` or` npm install` to install the dependencies.
+4. At a terminal at the root of the project run `yarn start` or` npm run start` to run the project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## :rocket: &nbsp; Technologies
+This project was developed with the following technologies:
 
-## Learn More
+- TypeScript
+- ReactJS
+- Context API
+- Styled Components
+- Polished
+- Axios
+- VS Code
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## :page_with_curl: &nbsp; License
+This project is under the MIT license. See the [LICENSE](https://github.com/vitorgiovane/zeruai-front-end/blob/master/LICENSE) for more information.
+
+<br>
+
+---
+Developed by **Vitor Giovane** <span>&#x1f1e7;&#x1f1f7;</span>
+
+**[Talk to me :smile:&nbsp;:thumbsup:](https://www.linkedin.com/in/vitorgiovane)** 
